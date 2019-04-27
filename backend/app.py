@@ -3,12 +3,17 @@ from login import login
 from register import register
 from leaderboard import leaderboard
 from upload import upload
+from flask_cors import CORS
+
+
 
 app = Flask(__name__)
 app.secret_key = "bpV 2Q/sF&[D`2a1Z2-85q/{1]XRQZgWj3_q)P,=K2O9`B*RKjWiDp9P{F%WK7C"
 
 app.debug = True
 port = 5001
+
+CORS(app)
 
 app.register_blueprint(register)
 app.register_blueprint(login)
