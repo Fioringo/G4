@@ -21,9 +21,9 @@ def login_():
 
     if check.count() > 0:
         response['message'] = "Success"
-        response['status'] = "Success"
+        response['status'] = "200"
     else:
         response['message'] = "Login failed"
-        response['status'] = "Failed"
+        response['status'] = "400"
 
     return jsonify(response)
