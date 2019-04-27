@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import {BrowserRouter, browserHistory, Route, Switch} from "react-router-dom";
 import "./App.css";
-import Header from "./Components/Header";
+import Header from "./Components/Header"
 import Home from "./Components/Home"
+import Leaderboard from "./Components/LeaderBoard"
+import SignUp from "./Components/SignUp"
+import Login from "./Components/LogIn"
 
 class App extends Component {
   constructor(props) {
@@ -14,12 +17,15 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="mainContainer">
           <BrowserRouter>
             <div>
               <Header />
               <hr/>
-              <Route exact path = "/" component = {Home} exact />
+              <Route exact path = "/" component = {Home} />
+              <Route exact path = "/leaderboard" component = {Leaderboard} />
+              <Route exact path = "/signup" component = {SignUp} />
+              <Route exact path = "/login" component = {Login} />
             </div>
           </BrowserRouter>
         </div>
