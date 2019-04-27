@@ -46,11 +46,14 @@ class LeaderBoard extends Component {
   render() {
     let players = this.state.players;
     let playerList = Object.keys(players).map((points) => <PlayerCard name={players[points]} points={points}/>);
-
+    let topPlayers = [];
+    for (let i=playerList.length-1; i>=0; i--) {
+      topPlayers.push(playerList[i]);
+    }
 
     return (
       <div onClick={this.onClickSetRand}>
-        {playerList}
+        {topPlayers}
       </div>
     );
   }
