@@ -12,4 +12,4 @@
 - Nicki Chen
 - David Yuen
 - Wilfredo
-- Suchwinger
+- Suchwinder
