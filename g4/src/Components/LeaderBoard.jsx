@@ -20,6 +20,19 @@ class LeaderBoard extends Component {
       this.setState({players})
     });
 
+    this.socket.on('intervalModifyFakeLeaderboard', (entry) => {
+      let players = this.state.players;
+      Object.keys(entry).forEach((points) => {
+        if (players.hasOwnProperty(points)) {
+          players[points].push(entry[points]);
+        } else {
+          players[points] = [entry[points]];
+        }
+      });
+
+      this.setState({players});
+    });
+
   }
 
   componentDidMount = () => {

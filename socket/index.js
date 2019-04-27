@@ -50,4 +50,17 @@ io.on('connection', (socket) => {
     socket.emit('modifyFakeLeaderboard', fakeLeaderboard);
   });
 
+  setInterval(() => {
+    let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let charLen = alphabet.length;
+    let name = '';
+    for ( var i = 0; i < 10; i++ ) {
+      name += alphabet.charAt(Math.floor(Math.random() * charLen));
+    }
+    let points = Math.floor(Math.random() * Math.floor(10000));
+    let entry = {};
+    entry[points] = name;
+    socket.emit('intervalModifyFakeLeaderboard', entry);
+  }, 2000);
+
 });
