@@ -36,10 +36,21 @@ io.on('connection', (socket) => {
     socket.emit('modifyFakeLeaderboard', fakeLeaderboard);
   });
 
-  socket.on('createRandomEntry', (fakeLeaderboard) => {
+  createEntry = () => {
+    let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let charLen = alphabet.length;
+    let name = '';
+    for ( let i = 0; i < 10; i++ ) {
+      name += alphabet.charAt(Math.floor(Math.random() * charLen));
+    }
     let points = Math.floor(Math.random() * Math.floor(10000));
     let entry = {};
-    entry[points] = 'dude';
+    entry[points] = name;
+    return entry;
+  }
+
+  socket.on('createRandomEntry', (fakeLeaderboard) => {
+    entry = createEntry();
     Object.keys(entry).forEach((points) => {
       if (fakeLeaderboard.hasOwnProperty(points)) {
         fakeLeaderboard[points].push(entry[points]);
@@ -50,17 +61,25 @@ io.on('connection', (socket) => {
     socket.emit('modifyFakeLeaderboard', fakeLeaderboard);
   });
 
+  socket.on('updateExistingEntries', (fakeLeaderboard) => {
+    Object.keys(fakeLeaderboard).forEach((points) => {
+      fakeLeaderboard[points].forEach((player, i) => {
+        let ableToUpdate = Math.random();
+        if (ableToUpdate > 0.75) {
+          let newPoints = parseInt(points) + Math.floor(Math.random() * Math.floor(1000));
+          fakeLeaderboard[newPoints] = [fakeLeaderboard[points][i]];
+          fakeLeaderboard[points].splice(i, 1);
+          if (fakeLeaderboard[points].length === 0) {
+            delete fakeLeaderboard[points];
+          }
+        }
+      });
+    });
+    socket.emit('updateExistingEntries', fakeLeaderboard);
+  });
+
   setInterval(() => {
-    let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let charLen = alphabet.length;
-    let name = '';
-    for ( var i = 0; i < 10; i++ ) {
-      name += alphabet.charAt(Math.floor(Math.random() * charLen));
-    }
-    let points = Math.floor(Math.random() * Math.floor(10000));
-    let entry = {};
-    entry[points] = name;
-    socket.emit('intervalModifyFakeLeaderboard', entry);
+    socket.emit('intervalModifyFakeLeaderboard', createEntry());
   }, 2000);
 
 });

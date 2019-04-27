@@ -29,7 +29,23 @@ class LeaderBoard extends Component {
           players[points] = [entry[points]];
         }
       });
+      Object.keys(players).forEach((points) => {
+        players[points].forEach((player, i) => {
+          let ableToUpdate = Math.random();
+          if (ableToUpdate > 0.75) {
+            let newPoints = parseInt(points) + Math.floor(Math.random() * Math.floor(1000));
+            players[newPoints] = [players[points][i]];
+            players[points].splice(i, 1);
+            if (players[points].length === 0) {
+              delete players[points];
+            }
+          }
+        });
+      });
+      this.setState({players});
+    });
 
+    this.socket.on('updateExistingEntries', (players) => {
       this.setState({players});
     });
 
@@ -40,7 +56,8 @@ class LeaderBoard extends Component {
   }
 
   onClickSetRand = () => {
-    this.socket.emit('createRandomEntry', (this.state.players));
+    //this.socket.emit('createRandomEntry', (this.state.players));
+    this.socket.emit('updateExistingEntries', (this.state.players));
   }
 
   render() {
