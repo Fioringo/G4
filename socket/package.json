@@ -1,0 +1,9 @@
+{
+  "name": "g4-socket",
+  "version": "0.0.1",
+  "description": "socket io for g4",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  }
+}
