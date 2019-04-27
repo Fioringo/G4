@@ -5,3 +5,5 @@ MarkupSafe==1.0
 pymongo==3.8.0
 python-dotenv==0.10.1
 Werkzeug==0.14.1
+flask-cors==3.0.7
+Six==1.12.0
