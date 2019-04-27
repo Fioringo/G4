@@ -26,13 +26,17 @@ class LeaderBoard extends Component {
     this.socket.emit('createFakeLeaderboard');
   }
 
+  onClickSetRand = () => {
+    this.socket.emit('createRandomEntry', (this.state.players));
+  }
+
   render() {
     let players = this.state.players;
     let playerList = Object.keys(players).map((points) => <PlayerCard name={players[points]} points={points}/>);
 
 
     return (
-      <div>
+      <div onClick={this.onClickSetRand}>
         {playerList}
       </div>
     );

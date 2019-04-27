@@ -34,6 +34,20 @@ io.on('connection', (socket) => {
       }
     });
     socket.emit('modifyFakeLeaderboard', fakeLeaderboard);
-  })
+  });
+
+  socket.on('createRandomEntry', (fakeLeaderboard) => {
+    let points = Math.floor(Math.random() * Math.floor(10000));
+    let entry = {};
+    entry[points] = 'dude';
+    Object.keys(entry).forEach((points) => {
+      if (fakeLeaderboard.hasOwnProperty(points)) {
+        fakeLeaderboard[points].push(entry[points]);
+      } else {
+        fakeLeaderboard[points] = [entry[points]];
+      }
+    });
+    socket.emit('modifyFakeLeaderboard', fakeLeaderboard);
+  });
 
 });
