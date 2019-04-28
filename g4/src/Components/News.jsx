@@ -8,7 +8,7 @@ class News extends Component {
     constructor(props){
         super(props);
         this.state = {
-            auth: null
+            
         }
     }
 
