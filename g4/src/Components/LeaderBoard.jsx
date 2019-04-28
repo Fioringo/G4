@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom'
 import axios from 'axios'
-import '../Styles/Home.css'
+import '../Styles/LeaderBoard.css'
 
 class LeaderBoard extends Component {
     constructor(props){
@@ -39,12 +39,12 @@ class LeaderBoard extends Component {
                     "score": 8
                 },
                 {
-                    "email": "some6@gmail.com",
+                    "email": "some7@gmail.com",
                     "name": "Connie",
                     "score": 12
                 },
                 {
-                    "email": "some6@gmail.com",
+                    "email": "some8@gmail.com",
                     "name": "Nicki",
                     "score": 22
                 },

@@ -9,7 +9,8 @@ class SignUp extends Component {
         this.state = {
             email: "",
             username: "",
-            password: ""
+            password: "",
+            loading: false,
         }
     }
 
@@ -20,7 +21,16 @@ class SignUp extends Component {
             "username": this.state.username,
             "password": this.state.password
         }
+        this.setState({
+            loading: true
+        })
         axios.post('', body)
+        .then(response => {
+
+        })
+        .catch(error => {
+
+        })
     }
 
     handleChange = (e) => {

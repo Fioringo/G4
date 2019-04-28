@@ -1,5 +1,36 @@
-.mainContainer {
+/* .mainContainer {
     background-color: #223843;
     color: #EFF1C5;
     justify-content: center;
+    align-content: center;
+    display: flex;
+    flex-flow: row;
+    flex-direction: row;
+} */
+
+.header {
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    flex-flow: row;
+    flex-direction: row;
+}
+
+.lisu {
+    display: flex;
+    flex-flow: row;
+    flex-direction: row;
+}
+
+.navlink {
+    color: #EFF1C5;
+    padding: 0.2em;
+    width: 5em;
+    background-color: #04724D;
+    margin: 0.2em;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
 }

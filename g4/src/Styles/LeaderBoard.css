@@ -1,0 +1,23 @@
+.LBrow {
+    background-color: #04724D;
+    /* display: flex; */
+    /* flex-flow: row; */
+    /* flex-direction: row; */
+}
+
+.LBrow:hover {
+    background-color: #C5D86D;
+}
+
+.PeopleList {
+    border: none;
+    border-collapse: collapse;
+    /* display: flex; */
+    /* flex-flow: column; */
+    /* flex-direction: column; */
+}
+
+.LBname, .LBscore {
+    color: #EFF1C5;
+    padding: 0.2em;
+}

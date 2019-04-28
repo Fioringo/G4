@@ -4,7 +4,7 @@ import axios from 'axios';
 import LeaderBoard from './LeaderBoard'
 // import News from './News'
 
-class Home extends Component {
+class News extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -14,7 +14,7 @@ class Home extends Component {
 
     render() {
         return (
-                <div className="Home">
+                <div className="News">
                     <div className="Content">
                         {/* <News /> */}
                     </div>
@@ -26,4 +26,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default News;
