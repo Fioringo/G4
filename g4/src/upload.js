@@ -26,7 +26,7 @@ class Upload extends React.Component {
         return (
             <div>
                 <input type="file" onChange={this.fileSelector} />
-                <img src={this.state.oldfile} />
+                <img width="160px" alt="Image user selected" src={this.state.oldfile} />
                 <button onClick={this.fileUpload}> Upload </button>
             </div>
         )
